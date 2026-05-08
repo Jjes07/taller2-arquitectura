@@ -1,4 +1,3 @@
-
 const pokeneas = [
   {
     id: 1,
