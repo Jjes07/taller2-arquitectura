@@ -1,9 +1,8 @@
-const os = require('os');
-const pokeneas = require('../data/pokeneas');
+const pokeneas = require("../data/pokeneas");
 
 const getRandomPokenea = () => {
-  const randomIndex = Math.floor(Math.random() * pokeneas.length);
-  return pokeneas[randomIndex];
+  const index = Math.floor(Math.random() * pokeneas.length);
+  return pokeneas[index];
 };
 
 const getApiPokenea = (req, res) => {
@@ -33,4 +32,5 @@ const getViewPokenea = (req, res) => {
   res.render('pokenea', viewData);
 };
 
-module.exports = { getApiPokenea, getViewPokenea };
+module.exports = { getRandomPokenea, getAllPokeneas };
+
