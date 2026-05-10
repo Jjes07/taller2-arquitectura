@@ -8,23 +8,29 @@ const getRandomPokenea = () => {
 
 const getApiPokenea = (req, res) => {
   const pokenea = getRandomPokenea();
-  res.json({
+  
+  apiData = {
     id: pokenea.id,
     name: pokenea.name,
     height: pokenea.height,
     ability: pokenea.ability,
     container: os.hostname()
-  });
+  };
+
+  res.json(apiData);
 };
 
 const getViewPokenea = (req, res) => {
   const pokenea = getRandomPokenea();
-  res.render('pokenea', {
+
+  viewData = {
     name: pokenea.name,
     image: pokenea.image,
     quote: pokenea.quote,
     container: os.hostname()
-  });
+  };
+
+  res.render('pokenea', viewData);
 };
 
 module.exports = { getApiPokenea, getViewPokenea };
