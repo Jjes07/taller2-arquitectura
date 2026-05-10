@@ -1,14 +1,12 @@
-const pokeneas = require("../data/pokeneas");
-
-const getRandomPokenea = () => {
-  const index = Math.floor(Math.random() * pokeneas.length);
-  return pokeneas[index];
-};
+const os = require("os");
+const pokeneas = require("../models/pokeneas");
+const { getRandomPokenea } = require("../models/pokeneas");
+const { name } = require("ejs");
 
 const getApiPokenea = (req, res) => {
   const pokenea = getRandomPokenea();
-  
-  apiData = {
+
+  const apiData = {
     id: pokenea.id,
     name: pokenea.name,
     height: pokenea.height,
@@ -22,15 +20,14 @@ const getApiPokenea = (req, res) => {
 const getViewPokenea = (req, res) => {
   const pokenea = getRandomPokenea();
 
-  viewData = {
+  const viewData = {
     name: pokenea.name,
     image: pokenea.image,
     quote: pokenea.quote,
-    container: os.hostname()
+    containerId: os.hostname()
   };
 
-  res.render('pokenea', viewData);
+  res.render("pokenea", viewData);
 };
 
-module.exports = { getRandomPokenea, getAllPokeneas };
-
+module.exports = { getApiPokenea, getViewPokenea };

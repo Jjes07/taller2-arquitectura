@@ -1,11 +1,10 @@
-
 const pokeneas = [
   {
     id: 1,
     name: "Pikachu Etapa 1",
     height: 2.0,
     ability: "Baila morena, baila morena",
-    image: "/images/pikabaile.jpg",
+    image: "https://storage.googleapis.com/pokeneas_7_bucket/pikabaile.jpg",
     quote: "Bailemos la macarena"
   },
   {
@@ -13,7 +12,7 @@ const pokeneas = [
     name: "Pikachu Etapa 2",
     height: 2.5,
     ability: "Mirar el horizonte",
-    image: "/images/pikabola.jpg",
+    image: "https://storage.googleapis.com/pokeneas_7_bucket/pikabola.jpg",
     quote: "¡Mira el horizonte!"
   },
   {
@@ -21,7 +20,7 @@ const pokeneas = [
     name: "Pikachu Etapa 3",
     height: 3.0,
     ability: "Comprar porros",
-    image: "/images/pikaburundanga.jpg",
+    image: "https://storage.googleapis.com/pokeneas_7_bucket/pikaburundanga.jpg",
     quote: "Ya se paso el efecto"
   },
   {
@@ -29,7 +28,7 @@ const pokeneas = [
     name: "Pikachu Etapa 4",
     height: 3.5,
     ability: "Mirar tu alma",
-    image: "/images/pikachino.jpg",
+    image: "https://storage.googleapis.com/pokeneas_7_bucket/pikachino.jpg",
     quote: "Miro tus pecados"
   },
   {
@@ -37,7 +36,7 @@ const pokeneas = [
     name: "Pikachu Etapa 5",
     height: 4.0,
     ability: "Ser normal",
-    image: "/images/pikachu.jpg",
+    image: "https://storage.googleapis.com/pokeneas_7_bucket/pikachu.jpg",
     quote: "Que tengas un gran día"
   },
   {
@@ -45,7 +44,7 @@ const pokeneas = [
     name: "Pikachu Etapa 6",
     height: 4.5,
     ability: "Aguantar el dolor",
-    image: "/images/pikaportugues.jpg",
+    image: "https://storage.googleapis.com/pokeneas_7_bucket/pikaportugues.jpg",
     quote: "Quero um cafe"
   },
   {
@@ -53,9 +52,14 @@ const pokeneas = [
     name: "Pikachu Etapa 7",
     height: 5.0,
     ability: "Mirar dos lados al mismo tiempo",
-    image: "/images/pikavisco.jpg",
+    image: "https://storage.googleapis.com/pokeneas_7_bucket/pikavisco.jpg",
     quote: "Puedo mirar a la izquierda y a la derecha al mismo tiempo"
   },
 ];
 
-module.exports = pokeneas;
+const getRandomPokenea = () => {
+  const index = Math.floor(Math.random() * pokeneas.length);
+  return pokeneas[index];
+};
+
+module.exports = { pokeneas, getRandomPokenea };

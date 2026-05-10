@@ -18,12 +18,7 @@ app.use("/web", webRoutes);
 
 
 app.get("/", (req, res) => {
-  res.send(`
-    <h2>Pokeneas</h2>
-    <p><a href="/api">/api</a> → JSON con pokenea aleatorio</p>
-    <p><a href="/web">/web</a> → Vista con imagen y frase</p>
-    <p>Container: ${os.hostname()}</p>
-  `);
+  res.render("home", { containerId: os.hostname() });
 });
 
 app.listen(PORT, () => {

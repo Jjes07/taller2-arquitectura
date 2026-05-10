@@ -1,13 +1,7 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const os = require("os");
-const { getRandomPokenea } = require("../controllers/pokeneasController");
+const { getViewPokenea } = require('../controllers/pokeneasController');
 
-router.get("/", (req, res) => {
-  const pokenea = getRandomPokenea();
-  const containerId = os.hostname();
-
-  res.render("pokenea", { pokenea, containerId });
-});
+router.get('/', getViewPokenea);
 
 module.exports = router;
