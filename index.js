@@ -14,14 +14,9 @@ app.set("views", path.join(__dirname, "src/views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api", apiRoutes);
-app.use("/web", webRoutes);
-
-
-app.get("/", (req, res) => {
-  res.render("home", { containerId: os.hostname() });
-});
+app.use("/", webRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en puerto ${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
   console.log(`Container ID: ${os.hostname()}`);
 });
