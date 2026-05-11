@@ -1,0 +1,33 @@
+name: Docker Image CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # Build the image once
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag taller2_arquitectura:latest
+
+    # Push to Juanjo's DockerHub
+    - name: Docker login Juanjo
+      run: docker login -u ${{secrets.DOCKERHUB_USER_JUANJO}} -p ${{secrets.DOCKERHUB_PASS_JUANJO}}
+
+    - name: Tag and push Juanjo
+      run: |
+        docker tag taller2_arquitectura:latest jjes07/taller2_arquitectura:latest
+        docker push jjes07/taller2_arquitectura:latest
+
+    # Push to Kadi's DockerHub
+    - name: Docker login Kadi
+      run: docker login -u ${{secrets.DOCKERHUB_USER_KADI}} -p ${{secrets.DOCKERHUB_PASS_KADI}}
+
+    - name: Tag and push Kadi
+      run: |
+        docker tag taller2_arquitectura:latest ${{secrets.DOCKERHUB_USER_COMP}}/taller2_arquitectura:latest
+        docker push ${{secrets.DOCKERHUB_USER_COMP}}/taller2_arquitectura:latest
