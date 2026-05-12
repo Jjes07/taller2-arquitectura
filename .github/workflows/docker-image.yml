@@ -25,7 +25,7 @@ jobs:
 
     # Push to Kadi's DockerHub
     - name: Docker login Kadi
-      run: docker login -u ${{secrets.DOCKERHUB_USER_KADI}} -p ${{secrets.DOCKERHUB_PASS_KADI}}
+      run: docker login -u ${{secrets.DOCKERHUB_USER_AGENTEK20}} -p ${{secrets.DOCKERHUB_PASS_AGENTEK20}}
 
     - name: Tag and push Kadi
       run: |
