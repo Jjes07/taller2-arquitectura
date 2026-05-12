@@ -29,5 +29,5 @@ jobs:
 
     - name: Tag and push Kadi
       run: |
-        docker tag taller2_arquitectura:latest ${{secrets.DOCKERHUB_USER_COMP}}/taller2_arquitectura:latest
-        docker push ${{secrets.DOCKERHUB_USER_COMP}}/taller2_arquitectura:latest
+        docker tag taller2_arquitectura:latest agentek20/taller2_arquitectura:latest
+        docker push agentek20/taller2_arquitectura:latest
