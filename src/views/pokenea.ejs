@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokenea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Permanent+Marker&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+
+  <h1>POKENEAS</h1>
+  <div class="subtitle">// nacidos en el infierno //</div>
+
+  <div class="card">
+    <div class="pokenea-name"><%= name %></div>
+
+    <div class="img-wrapper">
+      <img class="pokenea-img" src="<%= image %>" alt="<%= name %>" />
+      <div class="scan-line"></div>
+    </div>
+
+    <div class="quote-box">
+      "<%= quote %>"
+    </div>
+
+    <div>
+      <span class="container-badge"> CONTAINER_ID: <%= containerId %></span>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="refresh-btn" onclick="location.reload()">
+      [ INVOCAR OTRO ]
+    </button>
+    <a href="/api/" class="btn-group api-btn">
+      [ VER API JSON ]
+    </a>
+  </div>
+
+</body>
+</html>
